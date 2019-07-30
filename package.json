@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "babel-node src/app.js",
-    "test": "mocha test/test.js \"test/*.spec.js\""
+    "test": "mocha --reporter=spec test/test.js \"test/*.spec.js\""
   },
   "author": "David Okolo",
   "license": "ISC",
