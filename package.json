@@ -4,7 +4,8 @@
   "description": "Common Data Structures",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "babel-node src/app.js",
+    "test": "mocha test/test.js \"test/*.spec.js\""
   },
   "author": "David Okolo",
   "license": "ISC",
@@ -13,6 +14,7 @@
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
     "chai": "^4.2.0",
     "mocha": "^6.2.0"
   }
