@@ -31,15 +31,22 @@ describe(`Binary Search Tree`, ()=>
             {
                 let tree = new BST();
                 expect(tree.add(10)).to.be.true;
+                expect(tree.root.data).to.equal(10);
+                expect(tree.root.left).to.be.null;
+                expect(tree.root.right).to.be.null;
                 expect(tree.add(20)).to.be.true;
+                expect(tree.root.right.data).to.equal(20);
+                expect(tree.root.right.left).to.be.null;
+                expect(tree.root.right.right).to.be.null;
                 expect(tree.add(6)).to.be.true;
+                expect(tree.root.left.data).to.equal(6);
+                expect(tree.root.left.left).to.be.null;
+                expect(tree.root.left.right).to.be.null;
             });
         });
 
         describe(`Find And Remove Nodes`, ()=>
         {
-            before(()=>
-            {
                 let tree = new BST();
                 tree.add(10);
                 tree.add(20);
@@ -48,7 +55,6 @@ describe(`Binary Search Tree`, ()=>
                 tree.add(30);
                 tree.add(9);
                 tree.add(5);
-            })
 
             it(`should find extremes`, ()=>
             {
@@ -82,8 +88,6 @@ describe(`Binary Search Tree`, ()=>
 
         describe(`Tree Traversal`, ()=>
         {
-            beforeEach(()=>
-            {
                 let tree = new BST();
                 tree.add(20);
                 tree.add(10);
@@ -94,7 +98,6 @@ describe(`Binary Search Tree`, ()=>
                 tree.add(25);
                 tree.add(7);
                 tree.add(37);
-            })
 
             it(`should return balanced tree stats`, () => {
                 expect(tree.isBalanced()).to.be.true;
@@ -102,18 +105,18 @@ describe(`Binary Search Tree`, ()=>
                 expect(tree.findMinHeight()).to.equal(2);
             })
 
-            it(`should return unbalanced tree stats`, () => {
-                tree.remove(15);
-                expect(tree.isBalanced()).to.be.false;
-                expect(tree.findMaxHeight()).to.equal(3);
-                expect(tree.findMinHeight()).to.equal(1);
-            })
-
             it(`should traverse in different orders`, ()=>
             {
                 expect(tree.inOrder()).to.equal([5,7,10,15,20,25,30,35,37]);
                 expect(tree.preOrder()).to.equal([20,10,5,7,15,30,25,35,37]);
                 expect(tree.postOrder()).to.equal([7,5,15,10,25,37,35,30,20]);
+            })
+
+            it(`should return unbalanced tree stats`, () => {
+                tree.remove(15);
+                expect(tree.isBalanced()).to.be.false;
+                expect(tree.findMaxHeight()).to.equal(3);
+                expect(tree.findMinHeight()).to.equal(1);
             })
         })
     });
